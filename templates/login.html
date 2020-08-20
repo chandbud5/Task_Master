@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Task Master - Login</title>
+{% endblock %}
+
+{% block body %}
+    <h3><a href="/" style=" margin: 20px; color: black">Home</a></h3>
+    <h1 align="center">Welcome back to Task Master</h1>
+    <div align="center">
+        <form action="/" method="post">
+            <input type="text" placeholder="User Name" required><br>
+            <input type="password" style="margin-top: 10px; margin-bottom: 10px" placeholder="Password" required><br>
+            <input type="submit" align="center"><br>
+        </form>
+        <p style="margin-top: 20px; margin-right: 10px;">Create a new Account
+            <button onclick="window.location.href = '/signup/'">Sign Up</button></p>
+    </div>
+{% endblock %}

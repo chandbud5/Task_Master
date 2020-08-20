@@ -30,8 +30,9 @@ td {
 form {
     margin-top: 20px;
     align-content: center;
+    padding: 30px;
 }
 
 #content {
-    width: 70%;
+    width: 90%;
 }

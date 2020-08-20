@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 from datetime import datetime
 
 app = Flask(__name__)
@@ -54,6 +55,14 @@ def update(id):
             return "404 Something Went Wrong"
     else:
         return render_template('Update.html', task=task)
+
+@app.route('/login/')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup/')
+def signup():
+    return render_template('SignUp.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
