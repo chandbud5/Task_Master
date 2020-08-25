@@ -8,15 +8,38 @@
     <h3><a href="/" style="margin:20px; color: black">Home</a></h3>
     <div align="center">
     <h1 align="center">Welcome to Task Master..!!</h1>
-        <form action="/" method="post">
-            <input type="text" style="margin-top: 10px;" placeholder="Name" required><br>
-            <input type="email" style="margin-top: 10px;" placeholder="Email" required><br>
-            <input type="text" style="margin-top: 10px;" placeholder="User Name" required><br>
-            <input type="password" style="margin-top: 10px;" placeholder="Password"><br>
-            <input type="password" style="margin-top: 10px; margin-bottom: 10px;" placeholder="Confirm Password"><br>
-            <input type="submit" align="center"><br>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+                <legend>Join Today</legend>
+            <div>
+                {{ form.username.label() }}
+                {{ form.username() }}
+            </div>
+            <div>
+                {{ form.email.label() }}
+                {{ form.email() }}
+            </div>
+            <div>
+                {{ form.Date_Of_Birth.label() }}
+                {{ form.Date_Of_Birth() }}
+            </div>
+            <div>{{ form.password.label() }}
+                {{ form.password() }}
+            </div>
+                {{ form.confirm_password.label() }}
+                {{ form.confirm_password() }}
+<!--                <input type="text" style="margin-top: 10px;" placeholder="Name" required><br>
+                <input type="email" style="margin-top: 10px;" placeholder="Email" required><br>
+                <input type="text" style="margin-top: 10px;" placeholder="User Name" required><br>
+                <input type="password" style="margin-top: 10px;" placeholder="Password"><br>
+                <input type="password" style="margin-top: 10px; margin-bottom: 10px;" placeholder="Confirm Password"><br>
+
+            <input type="submit" align="center"><br>-->
+            <div>
+                {{ form.submit() }}
+            </div>
         </form>
         <p style="margin-top: 20px; margin-right: 10px;">Already Have an account
-            <button onclick="window.location.href = '/login/'">Login</button></p>
+            <button><a href="{{ url_for('login') }}">Login</a></button></p>
     </div>
 {% endblock %}

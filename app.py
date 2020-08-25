@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+from form import RegistrationForm, LoginForm
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SECRET_KEY'] = 'a8e8592bb5ee181069940fe9c226ca99'
 
 db = SQLAlchemy(app)
 
@@ -56,13 +58,15 @@ def update(id):
     else:
         return render_template('Update.html', task=task)
 
-@app.route('/login/')
-def login():
-    return render_template('login.html')
+@app.route("/register")
+def register():
+    form = RegistrationForm()
+    return render_template('SignUp.html', title='Register', form=form)
 
-@app.route('/signup/')
-def signup():
-    return render_template('SignUp.html')
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
 
 if __name__ == "__main__":
     app.run(debug=True)

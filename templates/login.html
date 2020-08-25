@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Task Master - Login</title>
+    <title>Task Master - Sign Up</title>
 {% endblock %}
 
 {% block body %}
@@ -9,11 +9,18 @@
     <h1 align="center">Welcome back to Task Master</h1>
     <div align="center">
         <form action="/" method="post">
-            <input type="text" placeholder="User Name" required><br>
-            <input type="password" style="margin-top: 10px; margin-bottom: 10px" placeholder="Password" required><br>
-            <input type="submit" align="center"><br>
+            <div>
+                {{ form.email.label() }}
+                {{ form.email() }}
+            </div>
+            <div>{{ form.password.label() }}
+                {{ form.password() }}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
         </form>
         <p style="margin-top: 20px; margin-right: 10px;">Create a new Account
-            <button onclick="window.location.href = '/signup/'">Sign Up</button></p>
+            <button><a href="{{ url_for('register') }}">Sign Up</a></button></p>
     </div>
 {% endblock %}

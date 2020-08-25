@@ -6,10 +6,10 @@
 
 {% block body %}
     <div align="right" class="Auth_Buttons">
-        <button value="Login" onclick="window.location.href = '/login/'"
-                style="margin-top: 25px; margin-right: 10px;">Login</button>
-        <button value="Sign Up" onclick="window.location.href = '/signup/'"
-                style="margin-top: 25px; margin-right: 25px;">Sign Up</button>
+        <button value="Login" style="margin-top: 25px; margin-right: 10px;">
+            <a href="{{ url_for('login') }}">Login</a></button>
+        <button value="Sign Up" style="margin-top: 25px; margin-right: 25px;">
+            <a href="{{ url_for('register') }}">Sign Up</a></button>
     </div>
     <div class="content">
         <h1 align="center">Task Master</h1>
