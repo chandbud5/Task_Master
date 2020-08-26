@@ -8,15 +8,14 @@
     <h3><a href="/" style=" margin: 20px; color: black">Home</a></h3>
     <h1 align="center">Welcome back to Task Master</h1>
     <div align="center">
-        <form action="/" method="post">
-            <div>
-                {{ form.email.label() }}
+        <form action="/login" method="post">
+            <div style="margin-top: 10px">
                 {{ form.email() }}
             </div>
-            <div>{{ form.password.label() }}
+            <div style="margin-top: 10px">
                 {{ form.password() }}
             </div>
-            <div>
+            <div style="margin-top: 10px">
                 {{ form.submit() }}
             </div>
         </form>

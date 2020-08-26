@@ -22,7 +22,7 @@ class Todo(db.Model):
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        task_content = request.form['Content']
+        task_content = request.form['content']
         new_task = Todo(content=task_content)
         try:
             db.session.add(new_task)
@@ -49,7 +49,7 @@ def delete(id):
 def update(id):
     task = Todo.query.get_or_404(id)
     if request.method == 'POST':
-        task.content = request.form['Content']
+        task.content = request.form['content']
         try:
             db.session.commit()
             return redirect('/')
@@ -58,15 +58,20 @@ def update(id):
     else:
         return render_template('Update.html', task=task)
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+
+    if form.validate_on_submit():
+        flash(f"Your account with username {form.username.data}! has been created", '_success_') # .format
+
     return render_template('SignUp.html', title='Register', form=form)
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -29,7 +29,8 @@ td {
 
 form {
     margin-top: 20px;
-    align-content: center;
+    align-content: stretch;
+    align-self: center;
     padding: 30px;
 }
 

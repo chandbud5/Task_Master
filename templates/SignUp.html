@@ -8,34 +8,25 @@
     <h3><a href="/" style="margin:20px; color: black">Home</a></h3>
     <div align="center">
     <h1 align="center">Welcome to Task Master..!!</h1>
-        <form action="" method="POST">
+        <form action="/register" method="POST">
             {{ form.hidden_tag() }}
-                <legend>Join Today</legend>
-            <div>
-                {{ form.username.label() }}
+                <legend style="margin: 15px; font-size: 20px">Join Today</legend>
+            <div style="margin-top: 10px">
                 {{ form.username() }}
             </div>
-            <div>
-                {{ form.email.label() }}
+            <div style="margin-top: 10px">
                 {{ form.email() }}
             </div>
-            <div>
-                {{ form.Date_Of_Birth.label() }}
+            <div style="margin-top: 10px">
                 {{ form.Date_Of_Birth() }}
             </div>
-            <div>{{ form.password.label() }}
+            <div style="margin-top: 10px">
                 {{ form.password() }}
             </div>
-                {{ form.confirm_password.label() }}
+            <div style="margin-top: 10px">
                 {{ form.confirm_password() }}
-<!--                <input type="text" style="margin-top: 10px;" placeholder="Name" required><br>
-                <input type="email" style="margin-top: 10px;" placeholder="Email" required><br>
-                <input type="text" style="margin-top: 10px;" placeholder="User Name" required><br>
-                <input type="password" style="margin-top: 10px;" placeholder="Password"><br>
-                <input type="password" style="margin-top: 10px; margin-bottom: 10px;" placeholder="Confirm Password"><br>
-
-            <input type="submit" align="center"><br>-->
-            <div>
+            </div>
+            <div style="margin-top: 10px">
                 {{ form.submit() }}
             </div>
         </form>
